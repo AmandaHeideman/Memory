@@ -1,0 +1,96 @@
+colors{
+    color: #F4F4F4;
+    color: #6CA5AF;
+    color: #64985A;
+    color: #7A6C7C;
+    color: #1C1C24;
+}
+*{
+    font-family: "ar berkley";
+    
+    color: #1C1C24;
+}
+html, body{
+    background-image: url("images/bakgrund.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+}
+body{
+    display:grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 80px 380px;
+}
+.header{
+    text-align: center;
+    background: rgb(108,165,175);
+    background: linear-gradient(43deg, rgba(108,165,175,1) 0%, rgba(122,108,124,1) 46%);
+    height: 78px;
+    margin-top: 0px;
+    grid-column: span 3;
+    border-bottom: 2px solid #1C1C24;
+}
+h1{
+    font-size: 2.7em;
+    margin:10px;
+    color: #F4F4F4;
+    font-family: 'Architects Daughter', cursive;
+}
+.gridBackground{
+    grid-column-start: 2;
+    background-color: #F4F4F4;
+    min-width: 516px;
+    margin-top: 0;
+    border-left: 2px solid #1C1C24;
+    border-right: 2px solid #1C1C24;
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+}
+.grid{
+    grid-column-start: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 424px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 15px;
+    border: solid 5px #1C1C24;
+    background-color: #6CA5AF;
+}
+.displayBackground{
+    grid-column-start: 2;
+    background-color: #F4F4F4;
+    min-width: 516px;
+    margin-top: 0;
+    border-left: 2px solid #1C1C24;
+    border-right: 2px solid #1C1C24;
+    
+}
+.display{
+    
+    width: 638px;
+    margin: auto;
+}
+
+img{
+    margin: 1px;
+    border-radius: 5px;
+    border: 2px solid #1C1C24;
+}
+
+.gameWon{
+    grid-column: span 4;
+}
+.playAgain{
+    grid-column-start: 2;
+    display:flex;
+    justify-content: center;
+    position: relative;
+    top: -10px;
+}
+button{
+    background-color: #64985A;
+    border: 2px solid #1C1C24;
+    font-size: 1.1em;
+}
