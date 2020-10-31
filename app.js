@@ -56,11 +56,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const grid = document.querySelector(".grid");
     const playAgain = document.querySelector(".playAgain");
+    const counter = document.querySelector(".counter");
+    const highscore = document.querySelector(".highscore");
+    if(localStorage.getItem("highscore")==null){
+        localStorage.setItem("highscore", 0);
+    }
+    highscore.innerHTML = "Highscore: " + localStorage.getItem("highscore");
+    
     const display = document.querySelector(".display");
+    let score = document.createElement("p");
+    counter.appendChild(score);
     
     var cardsChosen = [];
     var cardsChosenId = [];
     var cardsWon = [];
+    let clickCounter = 0;
 
     //create your board
     function createBoard(){
@@ -71,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
             card.addEventListener("click", flipcard);
             grid.appendChild(card);
         }
+        
     }
 
     //check for matches
@@ -79,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1];
         if (cardsChosen[0]===cardsChosen[1]){
-            //alert ("Match!");
             displyWonCards(cards[optionOneId].getAttribute("src"));
             cards[optionOneId].setAttribute("src", "images/blank.png");
             cards[optionTwoId].setAttribute("src", "images/blank.png");
@@ -88,19 +98,21 @@ document.addEventListener("DOMContentLoaded", () => {
         else{
             cards[optionOneId].setAttribute("src", "images/icon.png");
             cards[optionTwoId].setAttribute("src", "images/icon.png");
-            //alert("Sorry, try again");
         }
         cardsChosen = [];
         cardsChosenId = [];
-        //resultDisplay.textContent = cardsWon.length;
 
         if(cardsWon.length === cardArray.length/2){
-            //resultDisplay.textContent = "Congratulations, you found them all!"
             grid.innerHTML="";
             var card = document.createElement("img");
             card.setAttribute("src", "images/Happy pig.jpg");
             card.classList.add("gameWon");
             grid.appendChild(card);
+
+            if(highscore.innerHTML>clickCounter || highscore.innerHTML==0){
+                localStorage.setItem("highscore", clickCounter);
+                highscore.innerHTML = "Highscore: " + localStorage.getItem("highscore");
+            }
 
             let btn = document.createElement("button");
             btn.innerHTML = "Play again?";
@@ -113,6 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //flip your card
     function flipcard(){
+        clickCounter++;
+        score.innerHTML = "Score: "+clickCounter;
         var cardId = this.getAttribute("data-id");
         cardsChosen.push(cardArray[cardId].name);
         cardsChosenId.push(cardId);

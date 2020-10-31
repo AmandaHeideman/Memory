@@ -37,6 +37,9 @@ h1{
     color: #F4F4F4;
     font-family: 'Architects Daughter', cursive;
 }
+p{
+    font-size: 1.2em;
+}
 .gridBackground{
     grid-column-start: 2;
     background-color: #F4F4F4;
@@ -57,6 +60,10 @@ h1{
     padding: 15px;
     border: solid 5px #1C1C24;
     background-color: #6CA5AF;
+}
+.points{
+    display:flex;
+    justify-content: space-around;
 }
 .displayBackground{
     grid-column-start: 2;
