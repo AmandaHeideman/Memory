@@ -108,8 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
             card.setAttribute("src", "images/Happy pig.jpg");
             card.classList.add("gameWon");
             grid.appendChild(card);
-
-            if(highscore.innerHTML>clickCounter || highscore.innerHTML==0){
+            
+            if(localStorage.getItem("highscore")>clickCounter || localStorage.getItem("highscore")==0){
                 localStorage.setItem("highscore", clickCounter);
                 highscore.innerHTML = "Highscore: " + localStorage.getItem("highscore");
             }
